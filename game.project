@@ -1,0 +1,17 @@
+[script]
+shared_state = 1
+
+[display]
+width = 640
+height = 480
+
+[project]
+title = Space Guardians
+dependencies = https://github.com/subsoap/defos/archive/master.zip
+
+[bootstrap]
+main_collection = /main/main.collectionc
+
+[windows]
+app_icon = /main/png/shoot.ico
+

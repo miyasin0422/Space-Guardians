@@ -1,0 +1,78 @@
+function init(self)
+  msg.post(".", "acquire_input_focus")
+  start = gui.get_node("start_button")
+  finish = gui.get_node("finish_button")
+  battle = gui.get_node("battle")
+  lose = gui.get_node("lose_text")
+  start_color = gui.get_color(start)
+  battle_color = gui.get_color(battle)
+  lose_color = gui.get_color(lose)
+  gui.set_color(battle, vmath.vector4(battle_color.x, battle_color.y, battle_color.z, 0))
+  gui.set_color(lose, vmath.vector4(lose_color.x, lose_color.y, lose_color.z, 0))
+end
+
+function final(self)
+end
+
+function update(self, dt)
+  gui.set_text(gui.get_node("score"),"スコア:"..point)
+  gui.set_text(gui.get_node("last_score"), "ぜんかいのスコア:"..last_point)
+  gui.set_text(gui.get_node("player_number"), "×"..player_count)
+end
+
+function on_message(self, message_id, message, sender)
+  if message_id == hash("unload") then
+    gui.set_color(start, vmath.vector4(battle_color.x, battle_color.y, battle_color.z, 1))
+    gui.set_color(battle, vmath.vector4(battle_color.x, battle_color.y, battle_color.z, 0))
+  elseif message_id == hash("break") then
+    if player_count >= 1 and pcount_flag then
+      sound.stop("#broke")
+      sound.play("#broke")
+      pcount_flag = false
+      gui.set_text(lose, "You broke")
+      gui.set_position(gui.get_node("lose_count"), vmath.vector3(0, -60, 0))
+      gui.set_text(gui.get_node("lose_count"), "×"..player_count-1)
+      gui.set_color(lose, vmath.vector4(lose_color.x, lose_color.y, lose_color.z, 1))
+      timer.delay(1, false, continue)
+      timer.delay(0.1, false, pcount)
+    elseif player_count == 0 and pcount_flag then
+      sound.stop("#gameover")
+      sound.play("#gameover")
+      gui.set_text(lose, "game over")
+      gui.set_position(gui.get_node("lose_count"), vmath.vector3(1000, 0, 0))
+      gui.set_color(lose, vmath.vector4(lose_color.x, lose_color.y, lose_color.z, 1))
+      timer.delay(2, false, gameover)
+      last_point = point
+    end
+  end
+end
+
+function on_input(self, action_id, action)
+  if action_id == hash("leftclick") and action.pressed then
+    if gui.pick_node(start, action.x, action.y) and game_flag == false then
+      sound.stop("#button")
+      sound.play("#button")
+      msg.post("loader#loader", "game_start")
+      gui.set_color(start, vmath.vector4(battle_color.x, battle_color.y, battle_color.z, 0))
+      gui.set_color(battle, vmath.vector4(battle_color.x, battle_color.y, battle_color.z, 1))
+    elseif gui.pick_node(finish, action.x, action.y) and game_flag == false then
+      sound.stop("#button")
+      sound.play("#button")
+      sys.exit(0)
+    end
+  end
+end
+
+function continue(self, handle, time_elapsed)
+  msg.post("loader#loader", "continue")
+  gui.set_color(lose, vmath.vector4(lose_color.x, lose_color.y, lose_color.z, 0))
+end
+
+function gameover(self, handle, time_elapsed)
+  msg.post("loader#loader", "game_over")
+  gui.set_color(lose, vmath.vector4(lose_color.x, lose_color.y, lose_color.z, 0))
+end
+
+function pcount(self, handle, time_elapsed)
+  pcount_flag = true
+end

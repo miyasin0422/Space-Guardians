@@ -1,13 +1,5 @@
-# Welcome to Defold
-
-This project was created from the "empty" project template.
-
-The settings in ["game.project"](defold://open?path=/game.project) are all the default. A bootstrap empty ["main.collection"](defold://open?path=/main/main.collection) is included.
-
-Check out [the documentation pages](https://defold.com/learn) for examples, tutorials, manuals and API docs.
-
-If you run into trouble, help is available in [our forum](https://forum.defold.com).
-
-Happy Defolding!
-
----
+# Space Guardians
+インベーダーのようなレトロシューティングゲームをイメージして作りました
+全体的にレトロゲームの雰囲気が出るようにキャラデザインや音楽などをこだわりました
+製作ツール：Defold
+製作期間 2020/4～2020/7

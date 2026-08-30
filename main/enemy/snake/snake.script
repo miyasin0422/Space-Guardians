@@ -1,5 +1,4 @@
 function init(self)
-  math.randomseed(os.time()*os.clock())
   self.hp_count = 5
   self.speed = 50
 end

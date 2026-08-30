@@ -13,13 +13,15 @@ function init(self)
   ene_count = 0
   rand_count = 1
   --windowの設定
-	defos.disable_window_resize()
-	defos.disable_minimize_button(festival)
-	defos.disable_maximize_button(festival)
-	defos.set_always_on_top(festival)
-	display = defos.get_displays()
-	display_id = defos.get_current_display_id()
-	defos.set_view_size((display[display_id].bounds.width - 640) / 2, (display[display_id].bounds.height - 720) / 2, 640, 480)
+  if system_name == "Windows" then
+    	defos.disable_window_resize()
+    	defos.disable_minimize_button()
+    	defos.disable_maximize_button()
+    	defos.set_always_on_top(festival)
+    	display = defos.get_displays()
+    	display_id = defos.get_current_display_id()
+      defos.set_view_size((display[display_id].bounds.width - 640) / 2, (display[display_id].bounds.height - 720) / 2, 640, 480)
+  end
 end
 
 function final(self)
@@ -27,7 +29,7 @@ end
 
 function update(self, dt)
   if game_flag then
-    ene_count = ene_count + 1
+    ene_count = ene_count + dt
   end
 
   if ene_count >= rand_count then
@@ -71,10 +73,10 @@ function ene_pos(self)
   ene_x = math.random(50, 600)
   ene_y = math.random(200, 400)
   if point >= 3000 then
-    rand_count = math.random(100, 150)
+    rand_count = math.random(1, 2)
   elseif point >= 1000 then
-    rand_count = math.random(100, 200)
-  else rand_count = math.random(150, 250)
+    rand_count = math.random(2, 3)
+  else rand_count = math.random(2, 4)
   end
 end
 

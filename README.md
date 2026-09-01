@@ -43,8 +43,8 @@ Defoldを使用して個人制作した、2Dシューティングゲームです
 ゲームの内容を紹介しています。
 
 <!-- YouTube動画を公開後、VIDEO_IDとURLを置き換えてください -->
-[![Space Guardians 紹介動画](https://img.youtube.com/vi/q8PNk6apLFs/maxresdefault.jpg)](https://youtu.be/q8PNk6apLFs)
-[YouTubeで紹介動画を見る](https://youtu.be/q8PNk6apLFs)
+[![Space Guardians 紹介動画](https://img.youtube.com/vi/YH8qKcU1WK4/maxresdefault.jpg)](https://youtu.be/YH8qKcU1WK4)
+[YouTubeで紹介動画を見る](https://youtu.be/YH8qKcU1WK4)
 
 ---
 
@@ -67,6 +67,7 @@ Defoldを使用して個人制作した、2Dシューティングゲームです
 
 敵ごとに移動方法や攻撃方法を変更することで、
 ゲームが進むにつれて難易度が上昇するよう設計しています。
+<img width="547" height="647" alt="スクリーンショット 2026-09-01 210417" src="https://github.com/user-attachments/assets/82b9b417-73d7-4d83-93d4-6a078fa73d98" />
 
 <!-- スクリーンショットを追加 -->
 
@@ -105,6 +106,7 @@ Defoldを使用して個人制作した、2Dシューティングゲームです
 
 複雑なルールを覚えなくても短時間で遊べる、
 シンプルなシューティングゲームを目指して制作しています。
+<img width="1237" height="683" alt="スクリーンショット 2026-09-01 210438" src="https://github.com/user-attachments/assets/f9f79bd5-95f5-468c-b140-b7089e3eb114" />
 
 <!-- スクリーンショットを追加 -->
 
